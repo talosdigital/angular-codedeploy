@@ -6,9 +6,9 @@ mkdir -p /etc/httpd/sites-available
 mkdir -p /etc/httpd/sites-enabled
 
 #copy configuration
-cp /opt/angular-codedeploy/config/redirect.conf /etc/httpd/sites-available/
-cp /opt/angular-codedeploy/config/pronto.conf /etc/httpd/conf.d/
-cp /opt/angular-codedeploy/config/pronto-dev.conf /etc/httpd/sites-available/pronto-dev.conf
+cp /opt/angular-codedeploy/deployment/conf/redirect.conf /etc/httpd/sites-available/
+cp /opt/angular-codedeploy/deployment/conf/pronto.conf /etc/httpd/conf.d/
+cp /opt/angular-codedeploy/deployment/conf/pronto-dev.conf /etc/httpd/sites-available/pronto-dev.conf
 ln -sfn /etc/httpd/sites-available/redirect.conf /etc/httpd/sites-enabled/redirect.conf
 ln -sfn /etc/httpd/sites-available/pronto-dev.conf /etc/httpd/sites-enabled/pronto-dev.conf
 
