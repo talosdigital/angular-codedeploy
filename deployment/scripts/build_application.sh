@@ -6,4 +6,4 @@ rm -rf node_modules dist/*
 eval `ssh-agent -s`
 ssh-add /home/centos/.ssh/id_rsa
 npm install
-npm run build-test
+npm run $RUNSCRIPT
