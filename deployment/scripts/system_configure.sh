@@ -10,7 +10,6 @@ mkdir -p /etc/httpd/sites-enabled
 #copy configuration
 cp $CODEDEPLOY/deployment/conf/talos.conf /etc/httpd/conf.d/
 envsubst < $CODEDEPLOY/deployment/conf/template.conf > /etc/httpd/sites-available/$PROJECT.conf
-envsubst < $CODEDEPLOY/deployment/conf/build_application_template.sh >> $CODEDEPLOY/deployment/scripts/build_application.sh
 ln -sfn /etc/httpd/sites-available/$PROJECT.conf /etc/httpd/sites-enabled/$PROJECT.conf
 
 #Add Firewall Rule for External Access
