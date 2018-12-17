@@ -2,7 +2,7 @@
 
 . /opt/angular-codedeploy/deployment/scripts/setenv.sh
 
-if [ "$TARGET" != "" ] 
+if [ "$PROJECT" != "" ] 
 then
     rm -rf /var/www/$PROJECT
     mkdir -p /var/www/$PROJECT
