@@ -2,9 +2,9 @@
 
 . /opt/angular-codedeploy/deployment/scripts/setenv.sh
 
-cd /opt/angular-codedeploy/
+cd $CODEDEPLOY
 mv .netrc $HOME/.netrc
 
-rm -rf node_modules dist/*
+rm -rf node_modules $BUILDDIRECTORY/*
 npm install
 npm run $RUNSCRIPT
