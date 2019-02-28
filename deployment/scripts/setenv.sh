@@ -20,7 +20,7 @@ cd /opt/npm-codedeploy
 # BUILD_DIR    = Directory where the project will be built, e.g:
 #   build                                         (default value)
 #   dist
-for s in $(cat deployment/variables.json | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\") | .[] | @base64" ); do
+for s in $(cat deployment/variables.json | jq -r 'to_entries|map("\(.key)=\"\(.value|tostring)\"") | .[] | @base64' ); do
   export $(echo $s | base64 --decode)
 done
 
