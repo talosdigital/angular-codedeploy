@@ -20,9 +20,9 @@ cd /opt/npm-codedeploy
 # BUILD_DIR    = Directory where the project will be built, e.g:
 #   build                                         (default value)
 #   dist
-for s in $(cat deployment/variables.json | jq -r 'to_entries|map("\(.key)=\"\(.value|tostring)\"") | .[] | @base64' ); do
-  export $(echo $s | base64 --decode)
+for s in $(cat deployment/variables.json | jq --arg q "'" -r 'to_entries|map("\(.key)=\($q)\(.value|tostring)\($q)") | .[] | @base64' ); do
+  eval $(echo $s | base64 --decode)
 done
 
-export CODEDEPLOY_DIR=/opt/npm-codedeploy
-export PROJECT_WITHOUT_WWW=$(echo $PROJECT | sed 's/www\.//g')
+CODEDEPLOY_DIR=/opt/npm-codedeploy
+PROJECT_WITHOUT_WWW=$(echo $PROJECT | sed 's/www\.//g')
