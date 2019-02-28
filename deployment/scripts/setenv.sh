@@ -14,13 +14,13 @@ cd /opt/npm-codedeploy
 # CMD_INSTALL  = Command used to install dependencies, e.g:
 #   npm install                                   (default value)
 #   npm install && bower install
-# CMD_BUILD    = Command to be used to build the application, e.g:
+# CMD_BUILD    = Command to be used to build the application, eg:
 #   npm run build                                 (default value)
 #   node_modules/gulp/bin/gulp.js build
 # BUILD_DIR    = Directory where the project will be built, e.g:
 #   build                                         (default value)
 #   dist
-for s in $(cat variables.json | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\") | .[] | @base64" ); do
+for s in $(cat deployment/variables.json | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\") | .[] | @base64" ); do
   export $(echo $s | base64 --decode)
 done
 
