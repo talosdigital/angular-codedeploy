@@ -2,7 +2,7 @@
 
 # Update and install basic dependencies
 yum -y update
-yum -y install git httpd firewalld jq
+yum -y install git httpd firewalld jq bzip2
 
 # Enable apache and firewall
 systemctl enable httpd
