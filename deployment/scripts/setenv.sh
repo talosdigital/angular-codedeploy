@@ -28,5 +28,5 @@ CODEDEPLOY_DIR=/opt/npm-codedeploy
 
 # These 2 need to be exported so that when we move the template.conf file
 # The ENV variables inside the file get correctly replaced
-export $PROJECT
+export PROJECT=$PROJECT
 export PROJECT_WITHOUT_WWW=$(echo $PROJECT | sed 's/www\.//g')
