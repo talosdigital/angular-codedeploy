@@ -1,10 +1,28 @@
 #!/bin/bash
 
-export CODEDEPLOY=/opt/angular-codedeploy
+cd /opt/npm-codedeploy
 
-# Target
-cd $CODEDEPLOY
-export PROJECT=$(ls -1 target-* | sed -e 's/target-//g')
+# In this variable.json file should be variables like
+# PROJECT   = Project name and environment being deployed, using the url, e.g:
+#   pronto-dev.talosdigital.com
+#   www.dealt-test.test4echo.app
+#   viamericas-rc.tes4echo.co
+# NODE_VERSION = Node version to be installed for the build process, e.g:
+#   8.x                                           (default value)
+#   10.x
+#   6.x
+# CMD_INSTALL  = Command used to install dependencies, e.g:
+#   npm install                                   (default value)
+#   npm install && bower install
+# CMD_BUILD    = Command to be used to build the application, e.g:
+#   npm run build                                 (default value)
+#   node_modules/gulp/bin/gulp.js build
+# BUILD_DIR    = Directory where the project will be built, e.g:
+#   build                                         (default value)
+#   dist
+for s in $(cat variables.json | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\") | .[] | @base64" ); do
+  export $(echo $s | base64 --decode)
+done
+
+export CODEDEPLOY_DIR=/opt/npm-codedeploy
 export PROJECT_WITHOUT_WWW=$(echo $PROJECT | sed 's/www\.//g')
-export RUNSCRIPT=$(ls -1 script-* | sed -e 's/script-//g')
-export BUILDDIRECTORY=$(ls -1 builddir-* | sed -e 's/builddir-//g')
