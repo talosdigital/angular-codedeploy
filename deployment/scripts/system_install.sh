@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Update and install dependencies
+# Update and install basic dependencies
 yum -y update
-curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
-yum -y install git httpd firewalld nodejs
+yum -y install git httpd firewalld jq
 
 # Enable apache and firewall
 systemctl enable httpd
@@ -11,8 +10,8 @@ systemctl enable firewalld
 
 # Start apache and firewall
 systemctl stop firewalld
+systemctl stop httpd
 systemctl restart dbus
-systemctl stop httpd.service
 usermod -d /var/www apache
 systemctl start firewalld
 systemctl start httpd

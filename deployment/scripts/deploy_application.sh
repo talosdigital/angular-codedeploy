@@ -1,15 +1,16 @@
 #!/bin/bash
 
-. /opt/angular-codedeploy/deployment/scripts/setenv.sh
+source /opt/npm-codedeploy/deployment/scripts/setenv.sh
 
-if [ "$PROJECT" != "" ] 
-then
+# If a project was specified in variables.json, deploy using the project's name
+# Otherwise, deploy to the default apache folder
+if [ "$PROJECT" != "" ]; then
     rm -rf /var/www/$PROJECT
     mkdir -p /var/www/$PROJECT
-    cp -r $BUILDDIRECTORY/* /var/www/$PROJECT
+    cp -r $BUILD_DIR/* /var/www/$PROJECT
     chown -R apache:apache /var/www/$PROJECT
-else 
+else
     rm -rf html/*
-    cp -r $BUILDDIRECTORY/* /var/www/html
+    cp -r $BUILD_DIR/* /var/www/html
     chown -R apache:apache /var/www/html
 fi

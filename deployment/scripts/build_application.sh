@@ -1,10 +1,10 @@
 #!/bin/bash
 
-. /opt/angular-codedeploy/deployment/scripts/setenv.sh
+source /opt/npm-codedeploy/deployment/scripts/setenv.sh
 
-cd $CODEDEPLOY
+cd $CODEDEPLOY_DIR
 mv .netrc $HOME/.netrc
 
-rm -rf node_modules $BUILDDIRECTORY/*
-npm install
-npm run $RUNSCRIPT
+rm -rf node_modules $BUILD_DIR/*
+eval ${CMD_INSTALL:-npm install}
+eval ${CMD_BUILD:-npm run build}
