@@ -24,4 +24,4 @@ ln -s /usr/share/zoneinfo/America/Bogota /etc/localtime
 ln -sfn /opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agent-deployments.log /home/centos/codedeploy-agent-deployments.log
 
 # Remove previous deploy
-rm -rf /opt/angular-codedeploy
+rm -rf /opt/npm-codedeploy
