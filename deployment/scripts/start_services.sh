@@ -1,5 +1,5 @@
 #!/bin/bash
 # Start Web Server
-systemctl start httpd
+systemctl restart httpd
 
 echo "hurray!!!"

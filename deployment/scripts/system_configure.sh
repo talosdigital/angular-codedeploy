@@ -2,8 +2,6 @@
 # Configure Apache
 . /opt/angular-codedeploy/deployment/scripts/setenv.sh
 
-systemctl stop httpd
-
 mkdir -p /etc/httpd/sites-available
 mkdir -p /etc/httpd/sites-enabled
 
