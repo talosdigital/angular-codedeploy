@@ -6,5 +6,7 @@ cd $CODEDEPLOY_DIR
 mv .netrc $HOME/.netrc
 
 rm -rf node_modules ${BUILD_DIR:-build}/*
+echo "Running $CMD_INSTALL}"
 eval ${CMD_INSTALL:-npm install}
+echo "Running $CMD_BUILD}"
 eval ${CMD_BUILD:-npm run build}
