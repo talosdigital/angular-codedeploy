@@ -5,6 +5,6 @@
 cd $CODEDEPLOY
 mv .netrc $HOME/.netrc
 
-rm -rf node_modules $BUILDDIRECTORY/*
+rm -rf node_modules ${BUILDDIRECTORY:-dist}/*
 npm install
-npm run $RUNSCRIPT
+npm run ${RUNSCRIPT:-build}
