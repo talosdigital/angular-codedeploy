@@ -1,6 +1,6 @@
 #!/bin/bash
 # Configure Apache
-. /opt/angular-codedeploy/deployment/scripts/setenv.sh
+. /opt/npm-codedeploy/deployment/scripts/setenv.sh
 
 mkdir -p /etc/httpd/sites-available
 mkdir -p /etc/httpd/sites-enabled

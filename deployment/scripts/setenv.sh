@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export CODEDEPLOY=/opt/angular-codedeploy
+export CODEDEPLOY=/opt/npm-codedeploy
 
 # Target
 cd $CODEDEPLOY

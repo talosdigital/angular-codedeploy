@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /opt/angular-codedeploy/deployment/scripts/setenv.sh
+. /opt/npm-codedeploy/deployment/scripts/setenv.sh
 
 cd $CODEDEPLOY
 mv .netrc $HOME/.netrc
