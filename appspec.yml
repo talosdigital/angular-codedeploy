@@ -13,7 +13,7 @@ hooks:
       timeout: 300
       runas: root
     - location: deployment/scripts/build_application.sh
-      timeout: 1200
+      timeout: 2000
       runas: centos
     - location: deployment/scripts/deploy_application.sh
       timeout: 500
