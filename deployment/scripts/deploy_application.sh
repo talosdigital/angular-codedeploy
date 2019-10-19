@@ -8,9 +8,11 @@ if [ "$PROJECT" != "" ]; then
     rm -rf /var/www/$PROJECT
     mkdir -p /var/www/$PROJECT
     cp -r $BUILD_DIR/* /var/www/$PROJECT
+    cp $CODEDEPLOY_DIR/.htaccess /var/www/$PROJECT
     chown -R apache:apache /var/www/$PROJECT
 else
     rm -rf html/*
     cp -r $BUILD_DIR/* /var/www/html
+    cp $CODEDEPLOY_DIR/.htaccess /var/www/$PROJECT
     chown -R apache:apache /var/www/html
 fi
